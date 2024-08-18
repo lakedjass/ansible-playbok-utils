@@ -1,4 +1,9 @@
-- name: Git checkout
-  ansible.builtin.git:
-    repo: 'https://github.com/lakedjass/tools.git'
-    dest: /srv/checkout
+---
+- name : install ldap
+  hosts: all
+  become: true
+  tasks:
+    - name: CLONE REPO
+      ansible.builtin.git:
+        repo: 'https://github.com/lakedjass/tools.git'
+        dest: /opt/tools/
