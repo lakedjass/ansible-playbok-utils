@@ -9,7 +9,7 @@
         dest: /opt/tools/
     - name: docker compose up
       community.docker.docker_compose:
-        project_src: /opt/tools/docker/openldap
+        project_src: /opt/tools/docker/rocketchat
         state: present
         restarted: true
 
