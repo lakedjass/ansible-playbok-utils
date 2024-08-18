@@ -4,6 +4,7 @@
   vars:
     pip_install_packages:
       - name: docker
+      - name: docker-compose==1.24
 
   roles:
     - geerlingguy.pip
