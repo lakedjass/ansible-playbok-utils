@@ -12,6 +12,11 @@
         project_src: /opt/tools/docker/openldap
         state: present
         restarted: true
+    - name: Install  dependencies
+      ansible.builtin.apt:
+        name:
+          - python3-ldap
+        state: present
     - name: "create cn=users,dc=cyberzone-sec,dc=com entry"
       community.general.ldap_entry:
         dn: "cn=users,dc=cyberzone-sec,dc=com"
