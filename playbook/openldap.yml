@@ -1,0 +1,4 @@
+- name: Git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/lakedjass/tools.git'
+    dest: /srv/checkout
