@@ -29,3 +29,13 @@
         server_uri: ldap://localhost/
         bind_dn: cn=admin,dc=cyberzone-sec,dc=com
         bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
+    - name: "create cn=groups,dc=cyberzone-sec,dc=com entry"
+      community.general.ldap_entry:
+        dn: "ou=groups,dc=cyberzone-sec,dc=com"
+        objectClass:
+          - organizationalUnit
+        attributes:
+          ou: "groups"
+        server_uri: ldap://localhost/
+        bind_dn: cn=admin,dc=cyberzone-sec,dc=com
+        bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
