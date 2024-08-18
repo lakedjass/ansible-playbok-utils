@@ -12,3 +12,15 @@
         project_src: /opt/tools/docker/openldap
         state: present
         restarted: true
+    - name: "create cn=users,dc=cyberzone-sec,dc=com entry"
+      community.general.ldap_entry:
+        dn: "cn=users,dc=cyberzone-sec,dc=com"
+        objectClass:
+          - posixGroup
+          - top
+        attributes:
+          cn: "users"
+          gidnumber: 1
+        server_uri: ldap://localhost/
+        bind_dn: cn=admin,dc=cyberzone-sec,dc=com
+        bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
