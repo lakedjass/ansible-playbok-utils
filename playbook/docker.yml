@@ -3,8 +3,10 @@
 
   vars:
     pip_install_packages:
+      - name: pip
+        state: latest
       - name: docker
-      - name: docker-compose==1.24
+      - name: docker-compose
 
   roles:
     - geerlingguy.pip
