@@ -39,3 +39,25 @@
         server_uri: ldap://localhost/
         bind_dn: cn=admin,dc=cyberzone-sec,dc=com
         bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
+
+    - name: "create cn=default,cn=users,dc=cyberzone-sec,dc=com entry"
+      community.general.ldap_entry:
+        dn: "cn=default,cn=users,dc=cyberzone-sec,dc=com"
+        objectClass:
+          - inetOrgPerson
+          - posixAccount
+          - top
+        attributes:
+          cn: "default"
+          sn: "default"
+          uid: "default"
+          userPassword: "default"
+          uidNumber: 1
+          gidNumber: 1
+          loginShell: /bin/bash
+          homeDirectory: "/home/users/default"
+          givenName: "default"
+          mail: "default@cyberzone-sec.com"
+        server_uri: ldap://localhost/
+        bind_dn: cn=admin,dc=cyberzone-sec,dc=com
+        bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
