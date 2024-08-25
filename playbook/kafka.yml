@@ -12,6 +12,6 @@
         project_src: /opt/tools/docker/kafka
         state: present
         restarted: true
-        environment:
-          DOCKER_HOST_IP: "{{ ansible_default_ipv4.address }}"
+      environment:
+        DOCKER_HOST_IP: "{{ ansible_default_ipv4.address }}"
 
