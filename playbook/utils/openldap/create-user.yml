@@ -8,7 +8,7 @@
         name:
           - python3-ldap
         state: present
-    - name: "create cn={{ USER_USERNAME }},cn=users,dc=cyberzone-sec,dc=com entry"
+    - name: "create cn={{ LDAP_CN }},cn=users,dc=cyberzone-sec,dc=com entry"
       community.general.ldap_entry:
         dn: "cn={{ USER_USERNAME }},cn=users,dc=cyberzone-sec,dc=com"
         objectClass:
@@ -16,16 +16,17 @@
           - posixAccount
           - top
         attributes:
-          cn: "{{ USER_USERNAME }}"
-          sn: "{{ USER_USERNAME }}"
-          uid: "{{ USER_USERNAME }}"
-          userPassword: "{{ USER_PASSWORD }}"
-          uidNumber: "{{ USER_UID }}"
+          cn: "{{ LDAP_CN }}"
+          sn: "{{ LDAP_SN }}"
+          uid: "{{ LDAP_CN }}"
+          userPassword: "{{ LDAP_PASSWORD }}"
+          uidNumber: "{{ LDAP_UIDNUMBER }}"
           gidNumber: 1
           loginShell: /bin/bash
-          homeDirectory: "/home/users/{{ USER_USERNAME }}"
-          givenName: "{{ USER_USERNAME }}"
-          mail: "{{ USER_USERNAME }}@cyberzone-sec.com"
+          homeDirectory: "/home/users/{{ LDAP_CN }}"
+          givenName: "{{ LDAP_GIVENNAME }}"
+          mail: "{{ LDAP_EMAIL }}"
+          telephonenumber: "{{ LDAP_PHONE }}"
         server_uri: ldap://localhost/
         bind_dn: cn=admin,dc=cyberzone-sec,dc=com
         bind_pw: "{{ LDAP_ADMIN_PASSWORD }}"
