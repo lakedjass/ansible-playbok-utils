@@ -1,0 +1,17 @@
+---
+- name : install ldap
+  hosts: all
+  become: true
+  tasks:
+    - name: CLONE REPO
+      ansible.builtin.git:
+        repo: 'https://github.com/lakedjass/tools.git'
+        dest: /opt/tools/
+    - name: docker compose up
+      community.docker.docker_compose:
+        project_src: /opt/tools/docker/kafka
+        state: present
+        restarted: true
+        environment:
+          DOCKER_HOST_IP: "{{ ansible_default_ipv4.address }}"
+
