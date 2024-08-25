@@ -10,7 +10,7 @@
         state: present
     - name: "create cn={{ LDAP_CN }},cn=users,dc=cyberzone-sec,dc=com entry"
       community.general.ldap_entry:
-        dn: "cn={{ USER_USERNAME }},cn=users,dc=cyberzone-sec,dc=com"
+        dn: "cn={{ LDAP_CN }},cn=users,dc=cyberzone-sec,dc=com"
         objectClass:
           - inetOrgPerson
           - posixAccount
