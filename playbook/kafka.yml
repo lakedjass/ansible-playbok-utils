@@ -1,5 +1,5 @@
 ---
-- name : install ldap
+- name : install Kafka
   hosts: all
   become: true
   tasks:
