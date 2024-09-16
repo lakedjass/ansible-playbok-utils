@@ -1,0 +1,13 @@
+---
+- name : install jenkins
+  hosts: all
+  become: true
+  tasks:
+    - name: CLONE REPO
+      ansible.builtin.git:
+        repo: 'https://github.com/lakedjass/tools.git'
+        dest: /opt/tools/
+    - name: docker compose up
+      community.docker.docker_compose:
+        project_src: /opt/tools/docker/jenkins
+        state: present
